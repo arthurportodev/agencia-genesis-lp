@@ -1,0 +1,39 @@
+---
+import { navigation } from '../data/navigation';
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line bg-surface/55 pb-28 pt-12 sm:pb-16">
+  <div class="container-shell">
+    <div class="grid gap-10 lg:grid-cols-[1.2fr_.8fr_.8fr]">
+      <div>
+        <a href="#inicio" class="font-display text-2xl font-bold text-text-primary">Agência <span class="text-gold-gradient">Gênesis</span></a>
+        <p class="mt-4 max-w-md text-sm leading-7 text-text-secondary">{site.footerText}</p>
+      </div>
+
+      <div>
+        <h2 class="text-xs font-bold uppercase tracking-[0.16em] text-gold-light">Navegação</h2>
+        <ul class="mt-4 grid gap-3">
+          {navigation.map((item) => <li><a class="text-sm text-text-secondary transition hover:text-text-primary" href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xs font-bold uppercase tracking-[0.16em] text-gold-light">Contato</h2>
+        <a class="mt-4 inline-flex text-sm font-semibold text-text-primary underline decoration-gold/40 underline-offset-4 transition hover:text-gold-light" href={site.whatsappUrl} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-location="footer">
+          Falar pelo WhatsApp
+        </a>
+        <div class="mt-6 grid gap-2 text-xs text-text-secondary">
+          <span aria-disabled="true">Política de privacidade — em preparação</span>
+          <span aria-disabled="true">Termos de uso — em preparação</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-3 border-t border-line pt-6 text-xs text-text-secondary sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} Agência Gênesis. Todos os direitos reservados.</p>
+      <p>Landing pages, tracking e estruturas de conversão.</p>
+    </div>
+  </div>
+</footer>

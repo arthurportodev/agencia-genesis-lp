@@ -1,0 +1,51 @@
+---
+import { navigation } from '../data/navigation';
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<header id="site-header" class="fixed inset-x-0 top-0 z-40 border-b border-transparent transition duration-300">
+  <nav class="container-shell flex min-h-20 items-center justify-between gap-5" aria-label="Navegação principal">
+    <a href="#inicio" class="shrink-0 font-display text-lg font-bold tracking-[-0.02em] text-text-primary sm:text-xl" aria-label="Agência Gênesis — início">
+      Agência <span class="text-gold-gradient">Gênesis</span>
+    </a>
+
+    <div class="hidden items-center gap-7 lg:flex">
+      {navigation.map((item) => (
+        <a href={item.href} class="text-sm font-semibold text-text-secondary transition hover:text-text-primary">
+          {item.label}
+        </a>
+      ))}
+    </div>
+
+    <div class="hidden lg:block">
+      <WhatsAppButton label="Solicitar diagnóstico" location="navbar" variant="compact" />
+    </div>
+
+    <button
+      id="mobile-menu-button"
+      type="button"
+      class="grid h-11 w-11 place-items-center rounded-xl border border-line bg-surface text-text-primary lg:hidden"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="sr-only">Abrir menu</span>
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="container-shell hidden pb-5 lg:hidden">
+    <div class="surface-card rounded-2xl p-4">
+      <div class="grid gap-1">
+        {navigation.map((item) => (
+          <a href={item.href} class="rounded-lg px-4 py-3 text-sm font-semibold text-text-secondary transition hover:bg-white/5 hover:text-text-primary">
+            {item.label}
+          </a>
+        ))}
+      </div>
+      <WhatsAppButton label="Solicitar diagnóstico" location="navbar_mobile" class="mt-4 w-full" />
+    </div>
+  </div>
+</header>

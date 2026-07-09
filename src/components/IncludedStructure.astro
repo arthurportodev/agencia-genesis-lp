@@ -1,0 +1,45 @@
+---
+import { includedCategories } from '../data/process';
+import FeatureIcon from './FeatureIcon.astro';
+import SectionHeading from './SectionHeading.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<section class="section-space">
+  <div class="container-shell">
+    <SectionHeading
+      eyebrow="Escopo e possibilidades"
+      title="O que pode fazer parte da estrutura"
+      description="A composição final depende do objetivo e do escopo contratado. A base pode começar simples e evoluir conforme a necessidade do negócio."
+    />
+
+    <div class="mt-14 grid gap-6 lg:grid-cols-3">
+      {includedCategories.map((category) => (
+        <article class="surface-card rounded-3xl p-6 sm:p-8" data-reveal>
+          <div class="grid h-13 w-13 place-items-center rounded-2xl border border-gold/20 bg-gold/8 text-gold-light">
+            <FeatureIcon name={category.icon} class="h-7 w-7" />
+          </div>
+          <h3 class="mt-6 font-display text-2xl font-bold text-text-primary">{category.title}</h3>
+          <ul class="mt-6 grid gap-3">
+            {category.items.map((item) => (
+              <li class="flex items-start gap-3 text-sm leading-7 text-text-secondary">
+                <span class="mt-1.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gold/10 text-gold-light">
+                  <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+
+    <p class="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-text-secondary" data-reveal>
+      Integrações com banco de dados, CRM, webhooks, automações e outras ferramentas são definidas conforme o escopo de cada projeto.
+    </p>
+
+    <div class="mt-8 text-center" data-reveal>
+      <WhatsAppButton label="Entender o melhor escopo para meu negócio" location="delivery" />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,80 @@
+---
+import { site } from '../data/site';
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<section id="inicio" class="section-anchor relative overflow-hidden pb-20 pt-32 sm:pb-24 sm:pt-36 lg:pb-28 lg:pt-40">
+  <div class="pointer-events-none absolute inset-0 grid-noise opacity-50"></div>
+  <div class="pointer-events-none absolute left-1/2 top-0 h-[34rem] w-[50rem] -translate-x-1/2 rounded-full bg-gold/8 blur-[120px]"></div>
+
+  <div class="container-shell relative z-10">
+    <div class="mx-auto max-w-5xl text-center" data-reveal>
+      <span class="inline-flex items-center rounded-full border border-gold/20 bg-gold/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-gold-light sm:text-sm">
+        Landing pages e estruturas de conversão para clínicas
+      </span>
+
+      <h1 class="mt-7 font-display text-[clamp(2.5rem,7vw,5.4rem)] font-bold leading-[0.98] tracking-[-0.05em] text-text-primary">
+        Transforme a atenção que sua clínica recebe em
+        <span class="text-gold-gradient"> contatos e oportunidades reais</span>
+      </h1>
+
+      <p class="mx-auto mt-7 max-w-3xl text-base leading-8 text-text-secondary sm:text-xl sm:leading-9">
+        A Agência Gênesis cria landing pages estratégicas, tracking e estruturas de captação para clínicas que querem organizar melhor a jornada entre o anúncio, o site e o WhatsApp.
+      </p>
+
+      <div class="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+        <WhatsAppButton label="Solicitar diagnóstico gratuito" location="hero" class="w-full sm:w-auto" />
+        <a href="#estrutura" class="inline-flex min-h-14 items-center justify-center rounded-xl border border-line bg-white/[0.03] px-6 py-4 text-sm font-bold text-text-primary transition hover:border-gold/35 hover:bg-gold/6 sm:text-base">
+          Entender como funciona
+        </a>
+      </div>
+
+      <div class="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-semibold text-text-secondary sm:text-sm">
+        <span class="inline-flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-gold"></span>Projeto independente do WordPress</span>
+        <span class="inline-flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-gold"></span>Responsivo e preparado para tracking</span>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-14 max-w-5xl" data-reveal>
+      <div class="gold-border-card rounded-[1.4rem] p-2 sm:p-3">
+        <div class="relative aspect-video overflow-hidden rounded-[1rem] bg-surface">
+          <button
+            type="button"
+            class="group absolute inset-0 z-10 grid w-full place-items-center overflow-hidden text-left"
+            data-video-facade
+            data-video-id={site.videoId}
+            data-track="video_click"
+            data-location="hero"
+            aria-label="Reproduzir vídeo principal da Agência Gênesis"
+          >
+            <img
+              src={`https://i.ytimg.com/vi/${site.videoId}/maxresdefault.jpg`}
+              alt="Capa do vídeo principal da Agência Gênesis"
+              width="1280"
+              height="720"
+              class="absolute inset-0 h-full w-full object-cover opacity-75 transition duration-500 group-hover:scale-[1.02] group-hover:opacity-90"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <span class="absolute inset-0 bg-gradient-to-t from-page/75 via-page/10 to-page/15"></span>
+            <span class="relative grid h-20 w-20 place-items-center rounded-full border border-gold/40 bg-page/75 text-gold-light shadow-[0_0_55px_rgba(229,169,54,0.28)] backdrop-blur transition group-hover:scale-105 sm:h-24 sm:w-24">
+              <svg class="ml-1 h-8 w-8 sm:h-10 sm:w-10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 7 8 5-8 5V7Z"/></svg>
+            </span>
+            <span class="absolute bottom-5 left-5 right-5 text-center text-sm font-semibold text-white/85 sm:bottom-7 sm:text-base">Assista e entenda a estrutura de conversão</span>
+          </button>
+          <noscript>
+            <iframe
+              class="h-full w-full"
+              src={site.videoEmbedUrl}
+              title="Vídeo principal da Agência Gênesis"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </noscript>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

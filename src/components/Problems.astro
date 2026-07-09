@@ -1,0 +1,42 @@
+---
+import { problems } from '../data/problems';
+import FeatureIcon from './FeatureIcon.astro';
+import SectionHeading from './SectionHeading.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<section id="problema" class="section-anchor section-space relative border-y border-white/[0.04] bg-surface/35">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(229,169,54,0.07),transparent_35rem)]"></div>
+  <div class="container-shell relative z-10">
+    <SectionHeading
+      eyebrow="O problema"
+      title="Atrair atenção é apenas o começo. O problema aparece quando não existe uma estrutura para transformar essa atenção em oportunidade."
+      description="Instagram, anúncios e indicação podem gerar movimento. Sem uma jornada clara, porém, parte desse interesse se perde antes de virar uma conversa real."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-6">
+      {problems.map((problem, index) => (
+        <article
+          class:list={[
+            'surface-card rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/25 sm:p-7',
+            index < 2 ? 'lg:col-span-3' : 'lg:col-span-2',
+          ]}
+          data-reveal
+        >
+          <div class="grid h-12 w-12 place-items-center rounded-xl border border-gold/20 bg-gold/8 text-gold-light">
+            <FeatureIcon name={problem.icon} />
+          </div>
+          <h3 class="mt-5 font-display text-xl font-bold leading-tight text-text-primary">{problem.title}</h3>
+          <p class="mt-3 text-sm leading-7 text-text-secondary sm:text-base">{problem.description}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mx-auto mt-12 max-w-4xl rounded-2xl border border-gold/20 bg-gold/[0.055] px-6 py-7 text-center sm:px-10" data-reveal>
+      <p class="font-display text-xl font-semibold leading-relaxed text-text-primary sm:text-2xl">
+        A solução não é apenas levar mais pessoas até o site. É construir uma jornada que ajude essas pessoas a entender, confiar e agir.
+      </p>
+      <WhatsAppButton label="Analisar minha estrutura atual" location="problems" class="mt-6" />
+    </div>
+  </div>
+</section>

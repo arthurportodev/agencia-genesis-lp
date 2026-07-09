@@ -1,0 +1,30 @@
+---
+import { benefits } from '../data/benefits';
+import FeatureIcon from './FeatureIcon.astro';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section id="beneficios" class="section-anchor section-space bg-surface/35">
+  <div class="container-shell">
+    <SectionHeading
+      eyebrow="Benefícios"
+      title="O que muda quando o site deixa de ser apenas uma vitrine"
+      description="Uma estrutura bem construída melhora a experiência do visitante e dá ao negócio mais clareza para acompanhar e evoluir sua captação."
+    />
+
+    <div class="mt-14 grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+      {benefits.map((benefit, index) => (
+        <article class="group border-l border-line pl-5 transition hover:border-gold/45 sm:pl-6" data-reveal>
+          <div class="flex items-center gap-4">
+            <div class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold/8 text-gold-light">
+              <FeatureIcon name={benefit.icon} />
+            </div>
+            <span class="font-mono text-xs font-bold tracking-[0.18em] text-gold/65">0{index + 1}</span>
+          </div>
+          <h3 class="mt-5 font-display text-xl font-bold text-text-primary">{benefit.title}</h3>
+          <p class="mt-3 text-sm leading-7 text-text-secondary sm:text-base">{benefit.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

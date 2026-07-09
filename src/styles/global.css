@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
+@theme {
+  --color-page: #0d0f13;
+  --color-surface: #14171d;
+  --color-surface-elevated: #191d24;
+  --color-text-primary: #f0eee9;
+  --color-text-secondary: #9297a1;
+  --color-gold: #e5a936;
+  --color-gold-light: #f1ca7a;
+  --color-gold-dark: #b9770e;
+  --color-line: #292e37;
+  --color-whatsapp: #25d366;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.25);
+  --shadow-gold: 0 0 0 1px rgba(229, 169, 54, 0.18), 0 24px 70px rgba(229, 169, 54, 0.08);
+}
+
+:root {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-page);
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(229, 169, 54, 0.07), transparent 34rem),
+    var(--color-page);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(229, 169, 54, 0.3);
+  color: var(--color-text-primary);
+}
+
+button,
+a,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(241, 202, 122, 0.9);
+  outline-offset: 4px;
+}
+
+img,
+svg,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.container-shell {
+  width: min(100% - 2rem, 75rem);
+  margin-inline: auto;
+}
+
+.section-space {
+  padding-block: clamp(4.75rem, 8vw, 7.5rem);
+}
+
+.section-anchor {
+  scroll-margin-top: 6.5rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--color-gold-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 1.75rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold));
+  content: "";
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold) 60%, var(--color-gold-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.surface-card {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: linear-gradient(145deg, rgba(25, 29, 36, 0.92), rgba(20, 23, 29, 0.82));
+  box-shadow: var(--shadow-soft);
+}
+
+.gold-border-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(229, 169, 54, 0.2);
+  background: linear-gradient(145deg, rgba(25, 29, 36, 0.96), rgba(20, 23, 29, 0.9));
+  box-shadow: var(--shadow-gold);
+}
+
+.gold-border-card::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 0% 0%, rgba(241, 202, 122, 0.1), transparent 38%);
+  content: "";
+}
+
+.grid-noise {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 999;
+  transform: translateY(-150%);
+  border-radius: 0.65rem;
+  background: var(--color-text-primary);
+  color: var(--color-page);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.whatsapp-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  flex: 0 0 1.2rem;
+}
+
+.whatsapp-icon--floating {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-basis: 1.75rem;
+}
+
+[data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+.js [data-reveal].reveal-ready {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js [data-reveal].reveal-ready {
+    opacity: 1;
+    transform: none;
+  }
+}

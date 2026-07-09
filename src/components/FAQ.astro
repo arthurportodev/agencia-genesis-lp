@@ -1,0 +1,28 @@
+---
+import { faqItems } from '../data/faq';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section id="faq" class="section-anchor section-space border-y border-white/[0.04] bg-surface/35">
+  <div class="container-shell">
+    <SectionHeading
+      eyebrow="Perguntas frequentes"
+      title="Dúvidas importantes antes de construir sua nova página"
+      description="Respostas diretas sobre tecnologia, publicação, tracking e evolução do projeto."
+    />
+
+    <div class="mx-auto mt-14 grid max-w-4xl gap-3">
+      {faqItems.map((item) => (
+        <details class="group rounded-2xl border border-line bg-page/70 px-5 py-1 open:border-gold/25 open:bg-surface sm:px-6" data-faq-item data-reveal>
+          <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-5 py-4 font-display text-base font-bold text-text-primary marker:hidden sm:text-lg">
+            <span>{item.question}</span>
+            <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-line text-text-secondary transition group-open:rotate-45 group-open:border-gold/30 group-open:text-gold-light" aria-hidden="true">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+          </summary>
+          <p class="border-t border-line pb-5 pt-4 text-sm leading-7 text-text-secondary sm:text-base">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

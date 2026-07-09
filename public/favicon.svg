@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Agência Gênesis">
+  <defs>
+    <linearGradient id="g" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f1ca7a"/>
+      <stop offset="1" stop-color="#b9770e"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0d0f13"/>
+  <path d="M45.8 20.2A19 19 0 1 0 49.6 42H34V31h20v4.2A22 22 0 1 1 46.7 18l-.9 2.2Z" fill="url(#g)"/>
+</svg>

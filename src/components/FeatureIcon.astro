@@ -1,0 +1,35 @@
+---
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className = 'h-6 w-6' } = Astro.props;
+const common = {
+  xmlns: 'http://www.w3.org/2000/svg',
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  'stroke-width': '1.8',
+  'stroke-linecap': 'round',
+  'stroke-linejoin': 'round',
+  'aria-hidden': 'true',
+};
+---
+
+{(name === 'users') && <svg {...common} class={className}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>}
+{(name === 'message') && <svg {...common} class={className}><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M8 8h8M8 12h5"/></svg>}
+{(name === 'window') && <svg {...common} class={className}><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg>}
+{(name === 'chart' || name === 'analytics') && <svg {...common} class={className}><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>}
+{(name === 'layers') && <svg {...common} class={className}><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 17l9 5 9-5"/></svg>}
+{(name === 'spark') && <svg {...common} class={className}><path d="m12 3-1.6 4.4L6 9l4.4 1.6L12 15l1.6-4.4L18 9l-4.4-1.6L12 3Z"/><path d="m5 15-.8 2.2L2 18l2.2.8L5 21l.8-2.2L8 18l-2.2-.8L5 15Z"/></svg>}
+{(name === 'layout') && <svg {...common} class={className}><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg>}
+{(name === 'cursor') && <svg {...common} class={className}><path d="m4 3 7.5 17 2.1-6.4L20 11.5 4 3Z"/><path d="m13.5 13.5 5 5"/></svg>}
+{(name === 'pulse') && <svg {...common} class={className}><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>}
+{(name === 'growth') && <svg {...common} class={className}><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/></svg>}
+{(name === 'clarity') && <svg {...common} class={className}><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>}
+{(name === 'shield') && <svg {...common} class={className}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>}
+{(name === 'route') && <svg {...common} class={className}><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h3a3 3 0 0 0 3-3V8a3 3 0 0 1 3-3"/></svg>}
+{(name === 'code') && <svg {...common} class={className}><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg>}
+{(name === 'strategy') && <svg {...common} class={className}><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M21 12h-2M12 21v-2M3 12h2"/></svg>}
+{(name === 'automation') && <svg {...common} class={className}><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="5"/><path d="m5.6 5.6 2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>}

@@ -1,0 +1,54 @@
+---
+import { commonSite, genesisStructure } from '../data/benefits';
+import SectionHeading from './SectionHeading.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<section class="section-space relative overflow-hidden">
+  <div class="pointer-events-none absolute left-[-14rem] top-16 h-[30rem] w-[30rem] rounded-full bg-gold/5 blur-[120px]"></div>
+  <div class="container-shell relative z-10">
+    <SectionHeading
+      eyebrow="Diferencial"
+      title="Não é uma disputa entre tecnologias. É uma diferença de intenção e estrutura."
+      description="O comparativo abaixo mostra como uma página orientada para conversão se diferencia de um site criado apenas para marcar presença."
+    />
+
+    <div class="mt-14 grid gap-6 lg:grid-cols-2">
+      <article class="surface-card rounded-3xl p-6 sm:p-8" data-reveal>
+        <div class="flex items-center justify-between gap-4 border-b border-line pb-5">
+          <h3 class="font-display text-2xl font-bold text-text-primary">Um site comum</h3>
+          <span class="rounded-full border border-line px-3 py-1 text-xs font-bold uppercase tracking-wider text-text-secondary">Presença</span>
+        </div>
+        <ul class="mt-6 grid gap-4">
+          {commonSite.map((item) => (
+            <li class="flex items-start gap-3 text-sm leading-7 text-text-secondary sm:text-base">
+              <span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-text-secondary/55"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="gold-border-card rounded-3xl p-6 sm:p-8" data-reveal>
+        <div class="relative z-10 flex items-center justify-between gap-4 border-b border-gold/20 pb-5">
+          <h3 class="font-display text-2xl font-bold text-text-primary">Estrutura Gênesis</h3>
+          <span class="rounded-full border border-gold/25 bg-gold/8 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-light">Conversão</span>
+        </div>
+        <ul class="relative z-10 mt-6 grid gap-4">
+          {genesisStructure.map((item) => (
+            <li class="flex items-start gap-3 text-sm leading-7 text-text-primary sm:text-base">
+              <span class="mt-1.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gold/12 text-gold-light">
+                <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              </span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
+
+    <div class="mt-10 text-center" data-reveal>
+      <WhatsAppButton label="Quero uma estrutura mais profissional" location="benefits" />
+    </div>
+  </div>
+</section>

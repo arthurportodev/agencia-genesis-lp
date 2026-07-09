@@ -1,0 +1,29 @@
+---
+import { deliverySteps } from '../data/process';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section id="entrega" class="section-anchor section-space border-y border-white/[0.04] bg-surface/35">
+  <div class="container-shell">
+    <SectionHeading
+      eyebrow="Como funciona a entrega"
+      title="Um processo consultivo, organizado e fácil de acompanhar"
+      description="Cada etapa existe para transformar o entendimento do negócio em uma página clara, funcional e pronta para publicação."
+    />
+
+    <div class="mx-auto mt-14 max-w-4xl">
+      {deliverySteps.map((step, index) => (
+        <article class="relative grid gap-5 pb-10 sm:grid-cols-[5.5rem_1fr] sm:gap-7" data-reveal>
+          {index < deliverySteps.length - 1 && <span class="absolute left-[2.7rem] top-16 hidden h-[calc(100%-3rem)] w-px bg-gradient-to-b from-gold/35 to-line sm:block"></span>}
+          <div class="grid h-14 w-14 place-items-center rounded-2xl border border-gold/25 bg-gold/8 font-display text-lg font-bold text-gold-light sm:h-[5.5rem] sm:w-[5.5rem] sm:text-2xl">
+            {step.number}
+          </div>
+          <div class="rounded-2xl border border-line bg-page/60 p-6 sm:p-7">
+            <h3 class="font-display text-xl font-bold text-text-primary sm:text-2xl">{step.title}</h3>
+            <p class="mt-3 text-sm leading-7 text-text-secondary sm:text-base">{step.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

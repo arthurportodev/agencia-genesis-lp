@@ -1,0 +1,22 @@
+---
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<section class="section-space relative overflow-hidden">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(229,169,54,0.14),transparent_42rem)]"></div>
+  <div class="container-shell relative z-10">
+    <div class="gold-border-card mx-auto max-w-5xl rounded-[2rem] px-6 py-12 text-center sm:px-10 sm:py-16 lg:px-16" data-reveal>
+      <div class="relative z-10">
+        <span class="eyebrow">Próximo passo</span>
+        <h2 class="mx-auto mt-5 max-w-4xl font-display text-[clamp(2.1rem,5vw,4.2rem)] font-bold leading-[1.05] tracking-[-0.04em] text-text-primary">
+          Sua clínica já atrai atenção. Agora precisa de uma estrutura para transformar essa atenção em oportunidade.
+        </h2>
+        <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-text-secondary sm:text-lg">
+          Solicite um diagnóstico e entenda como organizar melhor a jornada entre seus anúncios, sua página e o WhatsApp.
+        </p>
+        <WhatsAppButton label="Solicitar diagnóstico pelo WhatsApp" location="final_cta" class="mt-8" />
+        <p class="mt-4 text-xs font-semibold uppercase tracking-[0.12em] text-text-secondary">Atendimento online para negócios de todo o Brasil.</p>
+      </div>
+    </div>
+  </div>
+</section>

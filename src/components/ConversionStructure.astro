@@ -1,0 +1,40 @@
+---
+import { conversionSteps } from '../data/process';
+import FeatureIcon from './FeatureIcon.astro';
+import SectionHeading from './SectionHeading.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<section id="estrutura" class="section-anchor section-space relative overflow-hidden">
+  <div class="pointer-events-none absolute right-[-12rem] top-20 h-[28rem] w-[28rem] rounded-full bg-gold/5 blur-[110px]"></div>
+  <div class="container-shell relative z-10">
+    <SectionHeading
+      eyebrow="A estrutura"
+      title="Uma jornada conectada entre atenção, página, contato e mensuração"
+      description="A estrutura de conversão organiza cada etapa para que o visitante encontre clareza, confiança e um próximo passo definido."
+    />
+
+    <div class="relative mt-16">
+      <div class="absolute left-[10%] right-[10%] top-10 hidden h-px bg-gradient-to-r from-transparent via-gold/35 to-transparent lg:block"></div>
+      <div class="grid gap-5 lg:grid-cols-5">
+        {conversionSteps.map((step) => (
+          <article class="group relative rounded-2xl border border-line bg-surface/90 p-5 text-center transition duration-300 hover:-translate-y-1 hover:border-gold/30" data-reveal>
+            <div class="relative z-10 mx-auto grid h-20 w-20 place-items-center rounded-2xl border border-gold/20 bg-page text-gold-light shadow-[0_12px_35px_rgba(0,0,0,0.25)]">
+              <FeatureIcon name={step.icon} class="h-7 w-7" />
+              <span class="absolute -right-2 -top-2 rounded-full border border-line bg-surface-elevated px-2 py-1 text-[10px] font-bold tracking-widest text-gold">{step.number}</span>
+            </div>
+            <h3 class="mt-5 font-display text-lg font-bold leading-tight text-text-primary">{step.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-text-secondary">{step.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="gold-border-card mx-auto mt-12 max-w-4xl rounded-2xl px-6 py-8 text-center sm:px-10" data-reveal>
+      <p class="font-display text-xl font-semibold leading-relaxed text-text-primary sm:text-2xl">
+        A tecnologia é importante, mas ela existe para sustentar uma estratégia: levar o potencial cliente da atenção até uma ação mensurável.
+      </p>
+      <WhatsAppButton label="Quero estruturar essa jornada" location="structure" class="mt-6" />
+    </div>
+  </div>
+</section>
