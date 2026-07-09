@@ -2,4 +2,5 @@ User-agent: *
 Allow: /
 
 # Substitua example.com pelo domínio final antes da publicação.
-Sitemap: https://example.com/sitemap-index.xml
+Sitemap: https://https://agenciagenesismkt.com.br
+
